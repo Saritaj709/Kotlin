@@ -17,7 +17,7 @@ class UserServiceImpl : UserService {
 
 	override fun postUser(user: UserDto): UserDto {
 
-		if(userRepository.findByName(user.name)!=null){
+		if (userRepository.findByName(user.name) != null) {
 			return user;
 		}
 		userRepository.save(user);
@@ -42,10 +42,10 @@ class UserServiceImpl : UserService {
 
 	override fun modifyUser(userId: String, name: String, phone: String): UserDto {
 		user = userRepository.findByUserId(userId)
-		
-		user.name=name
-		user.phone=phone
-		
+
+		user.name = name
+		user.phone = phone
+
 		userRepository.save(user)
 
 		return user
